@@ -11,5 +11,5 @@
 @interface JGGlossyButton : UIButton
 
 @property (nonatomic, strong) UIColor* color;
-
+@property (nonatomic, strong) UIColor* borderColor;
 @end

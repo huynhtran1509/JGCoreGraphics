@@ -30,6 +30,8 @@
 {
     [super viewDidLoad];
   self.button1.color = [UIColor colorWithRed:0.18 green:0.47 blue:0.74 alpha:1.0];
+  self.button1.borderColor = [UIColor redColor];
+
   self.button2.color = [UIColor colorWithRed:0.88 green:0.23 blue:0.21 alpha:1.0];
 }
 

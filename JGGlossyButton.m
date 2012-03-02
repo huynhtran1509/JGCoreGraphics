@@ -16,11 +16,22 @@
 @implementation JGGlossyButton
 #pragma mark - Properties
 @synthesize color = _color;
+@synthesize borderColor = _borderColor;
+
 - (void)setColor:(UIColor *)color
 {
   if (color == _color)
     return;
   _color = color;
+  [self setNeedsDisplay];
+}
+
+-(void)setBorderColor:(UIColor *)borderColor
+{
+  if(borderColor == _borderColor)
+    return;
+  
+  _borderColor = borderColor;
   [self setNeedsDisplay];
 }
 
@@ -46,6 +57,7 @@
 - (void)setup
 {
   self.color = [UIColor whiteColor];
+  self.borderColor = [UIColor blackColor];
 }
 
 #pragma mark - Drawign
@@ -70,7 +82,7 @@
   
   //draw outline
   CGContextSaveGState(context);
-  [[UIColor blackColor] set];
+  [self.borderColor set];
   CGRect innerBox = CGRectInset(bounds, 1.0f, 1.0f);
   UIBezierPath* innerBoxPath = [UIBezierPath bezierPathWithRoundedRect:innerBox
                                                  byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(4.0f, 4.0f)];
